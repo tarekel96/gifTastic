@@ -9,48 +9,152 @@
 </head>
 
 <body>
-   
+<div class="buttons"></div>
+<br>
+<div class="container"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-        
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=kobe&api_key=dkVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE";
-        
+
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=dkVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE";
+        var search = "";
+
         var animals = ["tiger", "bear", "lion", "shark", "wolf"];
         console.log("hello");
 
 
-         for (i = 0; i < animals.length; i++) {
-                $("button").click(function () {
-                    $("p").append("<b>animals[i]</b>");
-                    console.log(i);
-                    console.log("test");
-                };
-                if (i = 0) {
-                    input.button.click(function () {
-                        $.ajax({
-                            url: "https://api.giphy.com/v1/gifs/search?q=tiger&api_key=dkVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
-                            method: "GET"
-                        }).then(function (response)
-                 }
-               };
+        for (i = 0; i < animals.length; i++) {
+            $("body").append("<button class='" + "animal" + i + "'>" + animals[i] + "</button>")
+            console.log("i is " + i);
 
-            } else if (i = 1) {
-                input.button.click(function () {
+            // ON CLICK FUNCTION
+            $("button").click(function () {
+                console.log('INSIDE CLICK #1')
+                $("p").append("<b>animals[i]</b>");
+                // console.log(i);
+                // console.log("test");
+                // good code
+                $.ajax({
+                    url: "https://api.giphy.com/v1/gifs/search?q=tiger&api_key=kVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response);
+                    // console.log(response.data[i].embedded_url);
+                    var gifUrl = response.data[i].rating;
+                    console.log("url is: " + gifUrl)
+                    $(".container").append(`<img src="${gifUrl}">`);
+     /*                var results = response.data;
+
+          // Looping over every result item
+          for (var i = 0; i < results.length; i++) {
+                    var tiger = $(".container");
+                    var gifURL = data[i].url;
+                    var rate = data[i].rating;
+                    var personImage = $("<img>");
+                    personImage.attr("src", results[i].images.fixed_height.url);
+                    var p = $("<p>").text("Rating: " + rating);
+                    tiger.append(personImage)
+                    gifDiv.append(p); */
+            });
+            
+
+
+            // end good code
+
+            $(".animal0").click(function () {
+                console.log('INSIDE CLICK #2')
+                $("p").append("<b>animals[i]</b>");
+                // console.log(i);
+                // console.log("test");
+                // good code
+                $.ajax({
+                    url: "https://api.giphy.com/v1/gifs/search?q=bear&api_key=kVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response);
+                });
+            });
+
+            $(".animal0").click(function () {
+                console.log('INSIDE CLICK #2')
+                $("p").append("<b>animals[i]</b>");
+                // console.log(i);
+                // console.log("test");
+                // good code
+                $.ajax({
+                    url: "https://api.giphy.com/v1/gifs/search?q=lion&api_key=kVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response);
+                });
+            });
+
+            $(".animal0").click(function () {
+                console.log('INSIDE CLICK #2')
+                $("p").append("<b>animals[i]</b>");
+                // console.log(i);
+                // console.log("test");
+                // good code
+                $.ajax({
+                    url: "https://api.giphy.com/v1/gifs/search?q=shark&api_key=kVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response);
+                });
+            });
+
+            $(".animal0").click(function () {
+                console.log('INSIDE CLICK #2')
+                $("p").append("<b>animals[i]</b>");
+                // console.log(i);
+                // console.log("test");
+                // good code
+                $.ajax({
+                    url: "https://api.giphy.com/v1/gifs/search?q=wolf&api_key=kVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
+                    method: "GET"
+                }).then(function (response) {
+                    console.log(response);
+                });
+            });
+        });
+        };
+
+               /*  if (animals[i] === 0) {
+                console.log("test");
+                $('button').click(function () {
                     $.ajax({
-                        url: "https://api.giphy.com/v1/gifs/search?q=bear&api_key=dkVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
+                        url: "https://api.giphy.com/v1/gifs/search?q=tiger&api_key=kVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
                         method: "GET"
                     }).then(function (response) {
-                        console.log(response);
+                        
                     }
-                         else if (i = 2) {
+                    )
+                })
+            } 
+            else if (animals[i] === 1) {
+                input.button.click(function () {
+                    $.ajax({
+                        url: "https://api.giphy.com/v1/gifs/search?q=bear&api_key=kVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
+                        method: "GET"
+
+                    }).then(function (response) {
+                        console.log(response);
+                    });
+
+                })
+            }
+            }); */
+
+
+                       /*   else if (i = 2) {
                         input.button.click(function () {
                             $.ajax({
                                 url: "https://api.giphy.com/v1/gifs/search?q=lion&api_key=dkVYoZiKLZvfF7xcHsUMFC4chRg6IqIvE",
                                 method: "GET"
                             }).then(function (response) {
                                 console.log(response);
-                            }
+                            })
+                        }
                          else if (i = 3) {
                                 input.button.click(function () {
                                     $.ajax({
@@ -66,28 +170,28 @@
                                                 method: "GET"
                                             }).then(function (response) {
                                                 console.log(response);
-                                            }
-                        else {
+                                            } */
+                       /*  else {
                             console.log("wrong");
                         }
-                 
-                 
-                 
-                 
-                        
-        
+                  */
 
-       
-       
-            
-        
-        
-       
 
-        
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
-    
-    </body>
-    
-    </html
+
+</body>
+
+</html>
